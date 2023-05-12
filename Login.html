@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(45deg, rgba(255, 150, 12, 0.822), rgb(175, 72, 12));
+        }
+
+        div{
+            background-image: url(fundo.jpg);
+            position: absolute ;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 80px;
+            border-radius: 15px;
+            color: white;
+        }
+        input{
+            padding: 15px;
+            border: none;
+            font: 15px;
+        }
+        button {
+             padding: 15px;
+             width: 100%;
+             border-radius: 10px;
+             cursor: pointer;
+        }
+        button:hover{
+            background-color: gray;
+        }
+        
+        .invalid {
+            border: 2px solid red;
+        }
+
+        .valid {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class ="tela">
+        <h1>Login</h1>
+        <input type="email" id="email" placeholder="E-mail">
+        <br><br>
+        <input type="password" id="senha" placeholder="Senha">
+        <br><br>
+        <button><a href="/index.html">Entrar</a></button>
+    </div>
+
+    <script>
+        function validar() {
+            // Obter valores de entrada
+            var email = document.getElementById("email");
+            var senha = document.getElementById("senha");
+
+            // Validar e-mail
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                email.classList.add("invalid");
+                email.classList.remove("valid");
+            } else {
+                email.classList.remove("invalid");
+                email.classList.add("valid");
+            }
+
+            // Validar senha
+            if (senha.value.length < 6) {
+                senha.classList.add("invalid");
+                senha.classList.remove("valid");
+            } else {
+                senha.classList.remove("invalid");
+                senha.classList.add("valid");
+            }
+
+            // Verificar se todas as entradas são válidas
+            if (email.classList.contains("invalid") || senha.classList.contains("invalid")) {
+                alert("Por favor, verifique os campos em vermelho!");
+                return;
+            }
+
+            // Caso válido
+            alert("Login válido!");              
+                 
+        }
+    
+    </script>
+<a href="/index.html"></a>
+</body>
+</html>
